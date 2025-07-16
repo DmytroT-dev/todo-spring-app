@@ -9,6 +9,8 @@ A minimal, responsive Todo App built with:
 
 🎨 HTML + CSS — clean, modern UI
 
+H2 database 💾 — simple and easy to run.
+
 ✨ Features
 ✅ Add tasks via input form
 
