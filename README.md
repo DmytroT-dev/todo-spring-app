@@ -3,6 +3,8 @@ A minimal, responsive Todo App built with:
 
 🎯 Spring Boot — RESTful backend with full CRUD
 
+🧭 API Documentation — Swagger 
+
 🌐 Vanilla JS — frontend logic with fetch API
 
 🎨 HTML + CSS — clean, modern UI
