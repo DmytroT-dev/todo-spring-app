@@ -1,5 +1,6 @@
 package com.example.todo.controller;
 
+import com.example.todo.dto.TodoDto;
 import com.example.todo.model.Todo;
 import com.example.todo.repository.TodoRepository;
 import com.example.todo.service.TodoService;
@@ -12,33 +13,31 @@ import java.util.List;
 @RequestMapping("/api/todos")
 public class TodoController {
 
-    private final TodoRepository todoRepository;
     private final TodoService todoService;
 
-    public TodoController(TodoRepository todoRepository, TodoService todoService) {
-        this.todoRepository = todoRepository;
+    public TodoController(TodoService todoService) {
         this.todoService = todoService;
     }
 
     @GetMapping
-    public List<Todo> getAllTodos() {
+    public List<TodoDto> getAllTodos() {
         return todoService.getAllTodos();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Todo> getTodo(@PathVariable Long id) {
+    public ResponseEntity<TodoDto> getTodo(@PathVariable Long id) {
         return todoService.getTodoById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Todo create(@RequestBody Todo todo) {
-        return todoService.createTodo(todo);
+    public TodoDto create(@RequestBody TodoDto todoDto) {
+        return todoService.createTodo(todoDto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Todo> update(@PathVariable Long id, @RequestBody Todo updatedTodo) {
+    public ResponseEntity<TodoDto> update(@PathVariable Long id, @RequestBody TodoDto updatedTodo) {
         return todoService.updateTodo(id, updatedTodo)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

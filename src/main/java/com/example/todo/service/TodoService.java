@@ -1,5 +1,6 @@
 package com.example.todo.service;
 
+import com.example.todo.dto.TodoDto;
 import com.example.todo.model.Todo;
 
 import java.util.List;
@@ -7,13 +8,13 @@ import java.util.Optional;
 
 public interface TodoService {
 
-    List<Todo> getAllTodos();
+    List<TodoDto> getAllTodos();
 
-    Optional<Todo> getTodoById(Long id);
+    Optional<TodoDto> getTodoById(Long id);
 
-    Todo createTodo(Todo todo);
+    TodoDto createTodo(TodoDto todoDto);
 
-    Optional<Todo> updateTodo(Long id, Todo todo);
+    Optional<TodoDto> updateTodo(Long id, TodoDto newTodoDto);
 
     void deleteTodo(Long id);
 }
