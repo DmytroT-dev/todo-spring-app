@@ -1,8 +1,13 @@
 package com.example.todo.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class TodoDto {
     private Long id;
+
+    @NotBlank(message = "Title is required")
     private String title;
+
     private boolean completed;
 
     public Long getId() {

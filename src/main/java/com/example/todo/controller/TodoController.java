@@ -1,9 +1,8 @@
 package com.example.todo.controller;
 
 import com.example.todo.dto.TodoDto;
-import com.example.todo.model.Todo;
-import com.example.todo.repository.TodoRepository;
 import com.example.todo.service.TodoService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,12 +31,12 @@ public class TodoController {
     }
 
     @PostMapping
-    public TodoDto create(@RequestBody TodoDto todoDto) {
+    public TodoDto create(@Valid @RequestBody TodoDto todoDto) {
         return todoService.createTodo(todoDto);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TodoDto> update(@PathVariable Long id, @RequestBody TodoDto updatedTodo) {
+    public ResponseEntity<TodoDto> update(@PathVariable Long id, @Valid @RequestBody TodoDto updatedTodo) {
         return todoService.updateTodo(id, updatedTodo)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
