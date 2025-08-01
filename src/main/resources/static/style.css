@@ -77,7 +77,6 @@ button:hover {
     transition: all 0.5s ease;
 }
 
-/* 4. Magic, don't touch" */
 .removing {
     transform: translateY(30px);
     opacity: 0;

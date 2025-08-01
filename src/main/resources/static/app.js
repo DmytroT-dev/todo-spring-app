@@ -2,14 +2,12 @@ const form = document.getElementById('todo-form');
 const input = document.getElementById('todo-input');
 const list = document.getElementById('todo-list');
 
-// 📥 Загрузка задач при старте
 window.addEventListener('DOMContentLoaded', () => {
     fetch('/api/todos')
         .then(res => res.json())
         .then(data => data.forEach(renderTodo));
 });
 
-// 🧠 Функция отображения одной задачи
 function renderTodo(todo) {
     const li = document.createElement('li');
     li.className = 'todo-item';
@@ -43,7 +41,6 @@ function renderTodo(todo) {
     list.appendChild(li);
 }
 
-// 📨 Создание новой задачи
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const text = input.value.trim();
